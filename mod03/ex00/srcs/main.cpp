@@ -6,7 +6,7 @@
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:44:51 by allan             #+#    #+#             */
-/*   Updated: 2025/04/09 22:51:09 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/10 22:24:26 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void) {
 	Jose.takeDamage(5);
 	Jose.beRepaired(10);
 	
-	/* std::cout << std::endl;	
+	std::cout << std::endl;	
 	Jose.takeDamage(INT_MAX);
 	Jose.beRepaired(INT_MAX);
 
@@ -43,7 +43,7 @@ int main(void) {
 	Jose.attack("Momo_fils_de_Maurice");
 	Jose.attack("Momo_fils_de_Maurice");
 	Jose.attack("Momo_fils_de_Maurice");
-	Jose.attack("Momo_fils_de_Maurice"); */
+	Jose.attack("Momo_fils_de_Maurice");
 	
 	return 0;
 }

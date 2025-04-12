@@ -1,0 +1,7 @@
+1 - Check ou faut mettre des switchs
+
+2 - pour operator= rajouter check self assignment if (this != &rhs)
+
+3 - Pour tous les exos de class check si il faut print le constructor/destructor
+
+4 - mod00ou 01 matheo saut a la ligne
