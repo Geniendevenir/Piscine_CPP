@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 23:20:55 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:35:39 by allan            ###   ########.fr       */
+/*   Created: 2025/04/09 13:11:54 by allan             #+#    #+#             */
+/*   Updated: 2025/04/09 19:31:39 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <string>
 #include <iostream>
-#include "Brain.hpp"
+#include <climits>
+#include "ClapTrap.hpp"
 
-class Animal {
+class FragTrap : public ClapTrap {
 	public:
-		Animal();
-		Animal(const Animal &src);
-		virtual ~Animal();
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap&src);
+		~FragTrap();
 
-		Animal &operator=(const Animal &rhs);
-		std::string getType(void) const; //virtual??
-		virtual Brain* getBrain(void) const;
-		virtual void makeSound(void) const = 0;
+		FragTrap &operator=(const FragTrap&rhs);
+		std::string getName(void) const;
+		void beRepaired(unsigned int amount);
+		
+		void attack(const std::string& target);
+		void highFivesGuys();
 
-	protected:
-		std::string type;
 };
 
-std::ostream &operator<<(std::ostream &o, const Animal &i);
+std::ostream &operator<<(std::ostream &o, const FragTrap &i);
 
 #endif

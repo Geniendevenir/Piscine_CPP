@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 23:20:55 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:35:39 by allan            ###   ########.fr       */
+/*   Created: 2025/04/02 22:59:23 by allan             #+#    #+#             */
+/*   Updated: 2025/04/03 14:06:31 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
 #include <iostream>
-#include "Brain.hpp"
 
-class Animal {
+class Harl {
 	public:
-		Animal();
-		Animal(const Animal &src);
-		virtual ~Animal();
-
-		Animal &operator=(const Animal &rhs);
-		std::string getType(void) const; //virtual??
-		virtual Brain* getBrain(void) const;
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		std::string type;
+		Harl();
+		~Harl();
+		void complain(std::string level);
+		
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+		void (Harl::*mfp_level[4])();
+		std::string options[4];
 };
-
-std::ostream &operator<<(std::ostream &o, const Animal &i);
 
 #endif

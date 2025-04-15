@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 23:20:55 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:35:39 by allan            ###   ########.fr       */
+/*   Created: 2025/04/14 01:08:44 by allan             #+#    #+#             */
+/*   Updated: 2025/04/15 20:09:00 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <string>
 #include <iostream>
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Animal {
+class AMateria;
+
+class ICharacter {
 	public:
-		Animal();
-		Animal(const Animal &src);
-		virtual ~Animal();
-
-		Animal &operator=(const Animal &rhs);
-		std::string getType(void) const; //virtual??
-		virtual Brain* getBrain(void) const;
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		std::string type;
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0; //A pointer to a class doesnt need #include "class.hpp" ??
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
-
-std::ostream &operator<<(std::ostream &o, const Animal &i);
 
 #endif

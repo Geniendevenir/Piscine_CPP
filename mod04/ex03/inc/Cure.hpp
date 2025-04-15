@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 23:20:55 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:35:39 by allan            ###   ########.fr       */
+/*   Created: 2025/04/14 01:03:18 by allan             #+#    #+#             */
+/*   Updated: 2025/04/14 01:05:57 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
 #include <string>
 #include <iostream>
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Animal {
-	public:
-		Animal();
-		Animal(const Animal &src);
-		virtual ~Animal();
-
-		Animal &operator=(const Animal &rhs);
-		std::string getType(void) const; //virtual??
-		virtual Brain* getBrain(void) const;
-		virtual void makeSound(void) const = 0;
-
+class Cure : public AMateria{
 	protected:
-		std::string type;
+		std::string _type;
+
+	public:
+		Cure();
+		Cure(std::string const & type);
+		Cure(const Cure &src);
+		~Cure();
+
+		std::string const & getType() const;
+		
+		AMateria* clone() const;	
+		void use(ICharacter& target);
+		
+		Cure &operator=(const Cure &rhs);
 };
 
-std::ostream &operator<<(std::ostream &o, const Animal &i);
+std::ostream &operator<<(std::ostream &o, const Cure &i);
 
 #endif

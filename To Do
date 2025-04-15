@@ -5,3 +5,5 @@
 3 - Pour tous les exos de class check si il faut print le constructor/destructor
 
 4 - mod00ou 01 matheo saut a la ligne
+
+5 - Mod03 ScavTrap/Fragtrap check if the acitons messages should be named after the Base (ClapTrap Class) or Derived (Scav/Frag)
