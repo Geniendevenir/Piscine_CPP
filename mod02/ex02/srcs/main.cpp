@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 20:19:12 by allan             #+#    #+#             */
-/*   Updated: 2025/04/08 23:17:19 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/16 11:20:46 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
 	try {
-		Fixed a;
+		Fixed a (INT_MAX);
 		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 		//Fixed c( Fixed(INT_MAX) * Fixed(1));
 	
@@ -27,8 +27,8 @@ int main( void ) {
 		std::cout << a << std::endl;
 		
 		std::cout << b << std::endl;
-		
-		std::cout << Fixed::max( a, b ) << std::endl;
+		a = a * b;
+		std::cout << "a: " << a << std::endl;
 	} catch (const std::overflow_error&e) {
 		std::cerr << e.what() << std::endl;
 		return 1;

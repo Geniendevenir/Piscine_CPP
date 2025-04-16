@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 00:03:07 by allan             #+#    #+#             */
-/*   Updated: 2025/03/31 02:20:43 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/16 14:12:30 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int Contact::create(void) {
 	if (result != SUCCESS)
 		return result;
 		
-	std::cout << "Contact _last_name: ";
+	std::cout << "Contact last_name: ";
 	result = check_input(this->_last_name, true);
 	if (result != SUCCESS)
 		return result;
 	
-	std::cout << "Contact _nickname: ";
+	std::cout << "Contact nickname: ";
 	result = check_input(this->_nickname, true);
 	if (result != SUCCESS)
 		return result;
