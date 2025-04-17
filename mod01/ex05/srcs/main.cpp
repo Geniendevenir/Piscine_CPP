@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 13:58:45 by allan             #+#    #+#             */
-/*   Updated: 2025/04/03 14:10:48 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/17 14:49:15 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(void) {
 	harl.complain("ERROR");
 	harl.complain("NOTHING");
 	harl.complain("lksdfsjlkdfjlksjlfsfj ldsfksjlf");
+	harl.complain("");
 	return 0;
 }
