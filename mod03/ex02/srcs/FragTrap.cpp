@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:44:26 by allan             #+#    #+#             */
-/*   Updated: 2025/04/09 19:38:02 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/18 19:02:32 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+//	-------------------------------------------------	//
+// 	-			FragTrap Constructor 				-	//
+//	-------------------------------------------------	//
 
 FragTrap::FragTrap() {
 	std::cout << "FragTrap: Default Constructor called" << std::endl;
@@ -54,4 +57,42 @@ FragTrap& FragTrap::operator=(const FragTrap &rhs) {
 std::ostream &operator<<(std::ostream &o, const FragTrap &i) {
 	o << i.getName();
 	return o;	
+}
+
+
+
+
+//	-------------------------------------------------	//
+// 	-			FragTrap Actions Method				-	//
+//	-------------------------------------------------	//
+
+
+void FragTrap::attack(const std::string& target) {
+	if (this->_energy_point	<= 0) {
+		std::cout << "ClapTrap " << this->_name << " has no Energy Left to attack" << std::endl;
+		return ;
+	}
+	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;	
+	this->_energy_point--;
+}
+
+void FragTrap::beRepaired(unsigned int amount) {
+	int hp_repaired = 0;
+	
+	if (this->_energy_point	<= 0) {
+		std::cout << "ClapTrap " << this->_name << " has no Energy Left to repair itself" << std::endl;
+		return ;
+	}
+	while (amount > 0 && this->_hit_points < 100) {
+		this->_hit_points += 1;	
+		hp_repaired++;
+		amount--;
+	}
+	this->_energy_point--;
+	std::cout << "ClapTrap " << this->_name << " repair itself " << hp_repaired << " hitpoints" << std::endl;
+	return ;
+}
+
+void FragTrap::highFivesGuys(void) {
+	std::cout << "FragTrap " << this->_name << " wants to highfive you" << std::endl;
 }

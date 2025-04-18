@@ -1,7 +1,7 @@
 # Compiler and Flag
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -I$(INC)
-NAME = nfp
+NAME = nfp_advanced
 
 #Directories
 INC = inc/

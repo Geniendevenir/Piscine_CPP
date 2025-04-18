@@ -45,7 +45,9 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
     long long result = dividend / rhs._fpn;
     // Round to nearest
     result += (dividend % rhs._fpn) >= (rhs._fpn / 2) ? 1 : 0;
-    if (result > INT_MAX || result < INT_MIN)
+    if (result > INT_MAX || result < INT_MIN) {
         throw std::overflow_error("Division overflow");
+	}
+	std::cout << "Fixed Point Division Result = " << _fpn << std::endl;
     return Fixed(static_cast<int>(result));
 }

@@ -10,8 +10,7 @@ OBJ_DIR = obj/
 
 #Sources and objects
 SRCS = $(SRC_DIR)main.cpp \
-		$(SRC_DIR)ClapTrap.cpp \
-		$(SRC_DIR)ClapTrap_actions.cpp
+		$(SRC_DIR)ClapTrap.cpp
 
 OBJS = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 

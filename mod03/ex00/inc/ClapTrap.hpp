@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:11:54 by allan             #+#    #+#             */
-/*   Updated: 2025/04/09 14:52:48 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/18 18:09:39 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
