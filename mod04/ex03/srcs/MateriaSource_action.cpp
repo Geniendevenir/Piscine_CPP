@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource_action.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:34:52 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:46:43 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 16:20:00 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void MateriaSource::learnMateria(AMateria* to_learn) {
 	for (int i = 0; i < 4; i++) {
 		if (!_inventory[i]) {
-			_inventory[i] = to_learn;//Call either ice.clone or cure.clone
+			_inventory[i] = to_learn;
 			//std::cout << "MateriaSource has learned " << to_learn->getType() << std::endl;
 			return ;
 		}
@@ -34,7 +34,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 				return new Cure();	
 		}
 	}
-	//std::cout << "No Materia of type " << type << " has been learned" << std::endl;
+	std::cout << "No Materia of type " << type << " has been learned" << std::endl;
 	return NULL;
 }
 

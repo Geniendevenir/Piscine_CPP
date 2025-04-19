@@ -24,6 +24,7 @@ class Brain {
 
 		Brain &operator=(const Brain &rhs);
 		std::string getIdea(int i) const;
+		void setIdea(int i, std::string new_idea);
 
 	private:
 		std::string *ideas;

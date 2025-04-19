@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 01:08:44 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:12:10 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 15:51:13 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class Character : public ICharacter {
 		Floor* _floor;	
 		void _add_to_floor(AMateria *materia);
 		void _delete_floor();
-		//void _clone_floor(const Character &rhs);	
 		
 	public:
 		Character();
@@ -48,6 +47,8 @@ class Character : public ICharacter {
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		void showItems() const;
+		void showFloor() const;
 };
 
 

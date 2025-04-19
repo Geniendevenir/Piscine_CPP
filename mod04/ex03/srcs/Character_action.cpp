@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character_action.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:32:14 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:46:16 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 16:19:33 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@ void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (!_inventory[i]) {
 			_inventory[i] = m->clone();
+			//std::cout << "Materia " << *m << ": has been equiped to slot " << i << std::endl;
 			delete m;
-			//std::cout << "Materia has been equiped to slot " << i << std::endl;
 			return ;
 		}
 	}
-	//std::cout << "Inventory is full" << std::endl; //Messages should be deleted
+	std::cout << "Inventory is full" << std::endl; //Messages should be deleted
+	delete m;
 	return ;
 }
 
 void Character::unequip(int idx) {
-	if (_inventory[idx]) {
+	if (idx >= 0 && idx <= 3 &&_inventory[idx]) {
+		std::cout << _name << ": has dropped " << *_inventory[idx] << " on the floor" << std::endl;
 		_add_to_floor(_inventory[idx]);
-		//std::cout << _name << ": has dropped " << _inventory[idx] << " on the floor" << std::endl;
 		_inventory[idx] = NULL;
 		return ;
 	}
-	//std::cout << _name << ": no materia to drop on the floor" << std::endl;
+	std::cout << _name << ": no materia to drop on the floor" << std::endl;
 	return ;
 }
 
@@ -86,10 +87,21 @@ void Character::_delete_floor() {
 	_floor = NULL;
 }
 
-/* void Character::_clone_floor(const Character &rhs) {
-	Floor *curr = rhs._floor;
+void Character::showFloor() const {
+	Floor *curr = _floor;
+
 	while (curr) {
-		_add_to_floor(curr->_old_materia);	
-		curr = curr->_next;	
+		if (curr->_old_materia)
+			std::cout << *(curr->_old_materia) << std::endl;
+		curr = curr->_next;		
 	}
-} */
+}
+
+void Character::showItems() const {
+	for (int i = 0; i < 4; i++) {
+		if (_inventory[i])
+			std::cout << this->getName() << ": Inventory: Slot[" << i << "]: " << *(_inventory[i]) << std::endl;
+		else
+			std::cout << this->getName() << ": Inventory: Slot[" << i << "]: " << "Empty" << std::endl;
+	}
+}

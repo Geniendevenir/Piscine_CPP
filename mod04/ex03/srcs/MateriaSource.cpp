@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:29:52 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:44:22 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 16:20:24 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,3 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &rhs) {
 	}
 	return *this;
 }
-
-
-/* std::ostream &operator<<(std::ostream &o, const MateriaSource &i) {
-	//define behavior: std::cout << instance;
-	return o;
-} */
-
-

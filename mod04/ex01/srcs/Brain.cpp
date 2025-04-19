@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 23:26:23 by allan             #+#    #+#             */
-/*   Updated: 2025/04/11 18:19:41 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 11:24:58 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ Brain& Brain::operator=(const Brain &rhs) {
 
 std::string Brain::getIdea(int i) const {
 	return this->ideas[i];
+}
+
+void Brain::setIdea(int i, std::string new_idea) {
+	if (ideas[i].empty())
+		ideas[i] = new_idea;	
 }
 
 std::ostream &operator<<(std::ostream &o, const Brain &i) {

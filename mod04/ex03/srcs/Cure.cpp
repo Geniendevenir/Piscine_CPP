@@ -36,7 +36,8 @@ Cure::~Cure() {
 
 
 Cure& Cure::operator=(const Cure &rhs) {
-	this->_type = rhs._type;
+	if (this != &rhs)
+		this->_type = rhs.getType();
 	return *this;
 }
 std::string const & Cure::getType() const {

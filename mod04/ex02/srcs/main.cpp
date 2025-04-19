@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 23:29:50 by allan             #+#    #+#             */
-/*   Updated: 2025/04/11 22:13:28 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 11:37:29 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int main()
 {
+	//Test Animal is instantiable	
 	//Animal* test = new Animal();
 	//Animal test;
 	Animal *zoo[10]; 

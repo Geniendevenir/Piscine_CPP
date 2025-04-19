@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:32:14 by allan             #+#    #+#             */
-/*   Updated: 2025/04/15 20:43:53 by allan            ###   ########.fr       */
+/*   Updated: 2025/04/19 15:30:11 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ Character& Character::operator=(const Character &rhs) {
 	if (this != &rhs) {
 		_empty_inventory();	
 		_clone_inventory(rhs);
-		//_delete_floor();
-		//_clone_floor();	
 		_name = rhs._name;
 	}
 	return *this;
