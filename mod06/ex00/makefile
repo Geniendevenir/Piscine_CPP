@@ -10,7 +10,10 @@ OBJ_DIR = obj/
 
 #Sources and objects
 SRCS = $(SRC_DIR)main.cpp \
-		$(SRC_DIR)Bureaucrat.cpp \
+		$(SRC_DIR)checkType.cpp \
+		$(SRC_DIR)checkOverflow.cpp \
+		$(SRC_DIR)convertType.cpp \
+		$(SRC_DIR)ScalarConverter.cpp \
 
 OBJS = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
