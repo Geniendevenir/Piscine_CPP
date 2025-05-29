@@ -6,51 +6,58 @@
 /*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 16:27:35 by adebert           #+#    #+#             */
-/*   Updated: 2025/05/23 19:23:07 by adebert          ###   ########.fr       */
+/*   Updated: 2025/05/28 13:46:42 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checkType.hpp"
 
-bool isCharOverflow(long long value) {
-	if (value < 0 || value > 255)
-		return true;
-	return false;
-}
+bool willOverflowInt(std::string str) {
+	errno = 0;
+	char *end;
+	long result = std::strtol(str.c_str(), &end, 10);
 
-bool isLongOverflow(std::string value) {
-	bool flag = 0;
-	isInt(value, flag);
-	if (flag == false && isNumeric(value))
+	if (errno == ERANGE || result < INT_MIN || result > INT_MAX)
 		return true;
+		
 	return false;	
 }
 
-int isIntOverflow(long long i) {
-	if (i < -std::numeric_limits<int>::min()
-		|| i > std::numeric_limits<int>::max())
-		return INT_OVERFLOW;
-		
-	if (i < std::numeric_limits<double>::min()
-		|| i > std::numeric_limits<double>::max())
-		return DOUBLE_OVERFLOW;
-		
-	if (i < std::numeric_limits<float>::min()
-		|| i > std::numeric_limits<float>::max())
-		return FLOAT_OVERFLOW;	
-		
-		
-	return NO_OVERFLOW;
+bool isIntOverflow(long value) {
+	return (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min());
 }
 
-int isFloatOverflow(double f) {
-	if (f < -std::numeric_limits<float>::max()
-		|| f > std::numeric_limits<float>::max())
-		return FLOAT_OVERFLOW;	
-	return NO_OVERFLOW;	
+
+bool willOverflowFloat(std::string str) {
+	errno = 0;
+	char *end;
+	double result = std::strtod(str.c_str(), &end);
+
+	if (errno == ERANGE || result < -FLT_MAX || result > FLT_MAX)
+		return true;
+		
+	return false;	
 }
 
-bool isScientificNot(std::string value) {
+bool willOverflowDouble(std::string str) {
+	errno = 0;
+	char *end;
+	double result = std::strtod(str.c_str(), &end);
+
+	if (errno == ERANGE || result >= HUGE_VAL || result <= -HUGE_VAL)
+		return true;
+		
+	return false;	
+}
+
+void printOverflow() {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
+/* bool isScientificNot(std::string value) {
 	if (value[0] == '-' && value.size() > 7)
 		return true;
 	else if (value[0] == '+' && value.size() > 7)
@@ -58,8 +65,4 @@ bool isScientificNot(std::string value) {
 	else if (value[0] != '-' && value [0] != '+' && value.size() > 6)
 		return true;
 	return false;
-}
-
-/* bool isFloatOverflow(long long i) {
-	
 } */

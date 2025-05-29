@@ -1,7 +1,7 @@
 # Compiler and Flag
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -Wno-conversion -std=c++98 -I$(INC)
-NAME = convert 
+NAME = serialize 
 
 #Directories
 INC = inc/
@@ -9,11 +9,9 @@ SRC_DIR = srcs/
 OBJ_DIR = obj/
 
 #Sources and objects
-SRCS = $(SRC_DIR)main.cpp \
-		$(SRC_DIR)checkType.cpp \
-		$(SRC_DIR)checkOverflow.cpp \
-		$(SRC_DIR)convertType.cpp \
-		$(SRC_DIR)ScalarConverter.cpp \
+SRCS = 	$(SRC_DIR)main.cpp \
+		$(SRC_DIR)Serializer.cpp\
+		$(SRC_DIR)Data.cpp
 
 OBJS = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 

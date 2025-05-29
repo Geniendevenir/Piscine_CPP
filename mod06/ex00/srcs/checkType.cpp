@@ -6,18 +6,34 @@
 /*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:29:21 by adebert           #+#    #+#             */
-/*   Updated: 2025/05/23 19:05:20 by adebert          ###   ########.fr       */
+/*   Updated: 2025/05/28 13:22:14 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checkType.hpp"
 
-/* bool isNumeric(const std::string &str) {
-	std::istringstream iss(str);
-	double d;
-	iss >> d;
-	return iss.eof() && !iss.fail();
-} */
+bool isSpecialCase(const std::string &str) {
+	if (str == "+inff" || str == "+inf") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+		return (1);
+	} else if (str == "-inff" || str == "-inf") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+		return (1);
+	} else if (str == "nanf" || str == "nan") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+		return (1);
+	}
+	return (0);
+}
 
 bool isNumeric(const std::string &str) {
 	int i = 0;
@@ -40,7 +56,7 @@ long long isInt(const std::string &str, bool &flag) {
 }
 
 float isFloat(const std::string &str, bool &flag) {
-	float f = 0.0f;
+	float f = 0.0;
 	if (str.empty() || str[str.size() -1] != 'f') {
 		flag = false;
 		return f;
@@ -66,16 +82,18 @@ double isDouble(const std::string &str, bool &flag) {
 	return d;
 }
 
+int getDecimalNbr(const std::string &str) {
+	int i = 0;
+	int dec = 0;
+	while (str[i] && str[i] != '.')
+		i++;
+	if (!str[i])
+		return 0;	
+	i++;
+	while (str[i] && str[i] != 'f') {
+		i++;
+		dec++;
+	}
+	return dec;
+}
 
-/* Type detectType(const std::string &str, bool &flag) {
-	if (str.size() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]))
-		return TYPE_CHAR;
-	else if (isInt(str))
-		return TYPE_INT;
-	else if (isFloat(str))
-		return TYPE_FLOAT;
-	else if (isDouble(str))
-		return TYPE_DOUBLE;
-
-	return TYPE_INVALID;	
-} */

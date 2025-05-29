@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 13:52:36 by adebert           #+#    #+#             */
-/*   Updated: 2025/05/28 15:53:07 by adebert          ###   ########.fr       */
+/*   Created: 2025/05/28 15:43:34 by adebert           #+#    #+#             */
+/*   Updated: 2025/05/29 12:52:35 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <string>
 #include <iostream>
+#include <stdint.h>
 
-class ScalarConverter {
+#include "Data.hpp"
+
+class Serializer {
 	public:
-		static void convert(std::string value);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+
 	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &src);
-		~ScalarConverter();
-		ScalarConverter &operator=(const ScalarConverter &rhs);
+		Serializer();
+		Serializer(const Serializer &src);
+		~Serializer();
+		std::ostream& operator=(const Data& rhs);
 };
 
-std::ostream &operator<<(std::ostream &o, const ScalarConverter &i);
+std::ostream &operator<<(std::ostream &o, const Serializer &i);
 
 #endif

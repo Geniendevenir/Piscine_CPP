@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   identify.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 13:52:36 by adebert           #+#    #+#             */
-/*   Updated: 2025/05/28 15:53:07 by adebert          ###   ########.fr       */
+/*   Created: 2025/05/29 13:15:30 by adebert           #+#    #+#             */
+/*   Updated: 2025/05/29 14:06:02 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef IDENTIFY_HPP
+#define IDENTIFY_HPP
 
 #include <string>
 #include <iostream>
+#include <cstdlib> // rand()/srand()
+#include <ctime>
+#include <unistd.h>
 
-class ScalarConverter {
-	public:
-		static void convert(std::string value);
-	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &src);
-		~ScalarConverter();
-		ScalarConverter &operator=(const ScalarConverter &rhs);
-};
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-std::ostream &operator<<(std::ostream &o, const ScalarConverter &i);
+Base *generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
 
 #endif
