@@ -1,7 +1,7 @@
 # Compiler and Flag
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -Wno-conversion -std=c++98 -I$(INC)
-NAME = identfier
+NAME = Array
 
 #Directories
 INC = inc/
@@ -10,8 +10,6 @@ OBJ_DIR = obj/
 
 #Sources and objects
 SRCS = 	$(SRC_DIR)main.cpp \
-		$(SRC_DIR)identify.cpp\
-		$(SRC_DIR)Base.cpp\
 
 OBJS = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
