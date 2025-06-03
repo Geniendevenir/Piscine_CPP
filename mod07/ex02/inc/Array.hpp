@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:01:57 by adebert           #+#    #+#             */
-/*   Updated: 2025/06/02 19:58:25 by adebert          ###   ########.fr       */
+/*   Updated: 2025/06/03 15:13:28 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 template < typename T >
 class Array {
 	public:
-		Array() : _arr(new T[0]), _size(0) { }// Creates an Empty Array
-		Array(unsigned int n) : _arr(new T[n]), _size(n) { } // Creates an Array of N elements 
-		Array(const Array &src) : _arr(new T[src.size]), _size(src.size()) {
+		Array() : _arr(new T[0]()), _size(0) { }// Creates an Empty Array
+		Array(unsigned int n) : _arr(new T[n]()), _size(n) { } // Creates an Array of N elements 
+		Array(const Array &src) : _arr(new T[src.size()]()), _size(src.size()) {
 			for (std::size_t i = 0; i < _size; i++) {
 				_arr[i] = src._arr[i];
 			}
@@ -41,6 +41,7 @@ class Array {
 					_arr[i] = rhs._arr[i];
 				}
 			}
+			return *this;
 		}
 
 		const T& operator[](std::size_t index) const {
@@ -49,12 +50,29 @@ class Array {
 			return _arr[index];
 		}	
 
+		//Used Only for testing
+		void setArr(std::size_t index, const T &value) {
+			if (index >= _size)
+				throw std::out_of_range("Index out of bounds");
+			_arr[index] = value;	
+		}
+		
+		//Used Only for testing
+		T* getArrAddress(void) const {
+			return (_arr);
+		}
+
 	private:
 		T* _arr;
 		std::size_t _size;
 };
 
 template < typename T >
-std::ostream &operator<<(std::ostream &o, const Array< T > &i);
+std::ostream &operator<<(std::ostream &o, const Array< T > &a) {
+	for (std::size_t i = 0; i < a.size(); i++) {
+		o << a[i] << std::endl;
+	}
+	return o;
+}
 
 #endif
