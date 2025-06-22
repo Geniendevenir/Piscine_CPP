@@ -6,7 +6,7 @@
 /*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:39:47 by allan             #+#    #+#             */
-/*   Updated: 2025/06/15 20:33:28 by allan            ###   ########.fr       */
+/*   Updated: 2025/06/22 17:44:09 by allan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@
 #include <string>
 #include <iostream>
 #include <stack>
+#include <limits>
+#include <iomanip>
 
 #define SUCCESS 0
 #define ERROR 1
 
-
-/* Warning Edge cases: div by 0*/
-
 class RNP {
 	private:
-		std::stack<int> _rnp;	
+		std::stack<double> _rnp;	
 		int _stackSize;
 		std::string _input;
+		
 		bool isOperator(char c) const;
+		bool doOperation(char sign);
+		bool doSubstraction();
+		bool doMultiplication();
+		bool doAddition();
+		bool doDivision();
+		bool checkIntOverflow() const;
 
 	public:
 		RNP();
@@ -37,14 +43,10 @@ class RNP {
 		~RNP();
 
 		bool parseInput(void);
+		bool createStack(void);
+		double getResult(void) const;
 
-
-/* 		RNP &operator=(const RNP &rhs);
-		std::string getSomething(void) const;
-		void setSomething(std::string new_value); */
-
+ 		RNP &operator=(const RNP &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, const RNP &i);
 
 #endif
