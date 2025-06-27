@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 13:31:58 by allan             #+#    #+#             */
-/*   Updated: 2025/06/09 13:32:00 by allan            ###   ########.fr       */
+/*   Updated: 2025/06/11 10:36:14 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swapComp.hpp"Add commentMore actions
+#include "whatever.hpp"
 
 struct test {
 	std::string name;
@@ -41,7 +41,7 @@ int main( void ) {
 	//TESTS THAT SHOULD FAIL
 	
 	//Different Types
-	/*float f = 42.0;
+/* 	float f = 42.0;
 	std::string str = "Hello";
 	::swap(f, str); */
 
@@ -62,8 +62,8 @@ int main( void ) {
 	::swap(a, b);	
 	std::cout << "After Swap:" << std::endl;
 	std::cout << "A:" << std::endl << a << std::endl;
-	std::cout << "B:" << std::endl << b << std::endl;
-	 */
+	std::cout << "B:" << std::endl << b << std::endl; */
+	
 	//Types which doesnt support comparaison
 	//::min(a, b); //Shouldnt Work
 	

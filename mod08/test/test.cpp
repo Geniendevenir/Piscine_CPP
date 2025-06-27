@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 18:05:42 by allan             #+#    #+#             */
-/*   Updated: 2025/06/11 16:14:15 by adebert          ###   ########.fr       */
+/*   Created: 2025/06/11 16:06:49 by adebert           #+#    #+#             */
+/*   Updated: 2025/06/11 16:15:02 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
+//TEST MAIN CPP08 - EX02
 
-int main()
+/* int main()
 {
 	std::cout << "TEST USING MUTANTSTACK" << std::endl;
 	MutantStack<float> mstack;
@@ -58,4 +58,4 @@ int main()
 		++l_it;
 	}
 	return 0;
-}
+} */

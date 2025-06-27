@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 19:01:57 by adebert           #+#    #+#             */
-/*   Updated: 2025/06/09 14:59:38 by allan            ###   ########.fr       */
+/*   Updated: 2025/06/11 10:57:29 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ class Array {
 			return *this;
 		}
 
+		T& operator[](std::size_t index) {
+			if (index >= _size)
+				throw std::out_of_range("Index out of bounds");
+			return _arr[index];
+		}	
+		
 		const T& operator[](std::size_t index) const {
 			if (index >= _size)
 				throw std::out_of_range("Index out of bounds");

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swapComp.hpp                                       :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 13:32:23 by allan             #+#    #+#             */
-/*   Updated: 2025/06/09 13:32:35 by allan            ###   ########.fr       */
+/*   Updated: 2025/06/11 10:27:52 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SWAPCOMP_HPP
-#define SWAPCOMP_HPP
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
 #include <string>
 #include <iostream>
@@ -30,7 +30,7 @@ const T& min(const T& v1, const T& v2) {
 
 template< typename T >
 const T& max(const T& v1, const T& v2) {
-	return (v1 > v2 ? v1 : v2);Add commentMore actions
+	return (v1 > v2 ? v1 : v2);
 }
 
 #endif

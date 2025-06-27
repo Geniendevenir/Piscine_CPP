@@ -1,7 +1,7 @@
 # Compiler and Flag
-CXX = c++
+CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -Wno-conversion -std=c++98 -I$(INC)
-NAME = PmergeMe
+NAME = easyfind
 
 #Directories
 INC = inc/
@@ -10,7 +10,6 @@ OBJ_DIR = obj/
 
 #Sources and objects
 SRCS = 	$(SRC_DIR)main.cpp \
-		$(SRC_DIR)PmergeMe.cpp
 
 OBJS = $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
