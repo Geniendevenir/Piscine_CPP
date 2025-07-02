@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 15:23:14 by allan             #+#    #+#             */
-/*   Updated: 2025/06/14 15:09:25 by allan            ###   ########.fr       */
+/*   Updated: 2025/07/02 14:56:31 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ BitcoinExchange::BitcoinExchange(const std::string &amountFileName) {
 }
 
 
-/* BitcoinExchange::BitcoinExchange(const BitcoinExchange &src) {
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &src) {
 	*this = src;
 	return ;
 }
-*/
+
 
 BitcoinExchange::~BitcoinExchange() {
 	if (_rateFile)
@@ -50,34 +50,13 @@ BitcoinExchange::~BitcoinExchange() {
 //					OVERLOADED OPERATOR					//
 //////////////////////////////////////////////////////////
 
-/* BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &rhs) {
-	//define behavior: instA = instB;
-	//if (this != &rhs)
-		//copy value;
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &rhs) {
+	if (this != &rhs) {
+		_rateData = rhs._rateData;
+	}
+		
 	return *this;
 }
-
-
-std::ostream &operator<<(std::ostream &o, const BitcoinExchange &i) {
-	//define behavior: std::cout << instance;
-	return o;
-} */
-
-
-//////////////////////////////////////////////////////////
-//					 GETTER/SETTER						//
-//////////////////////////////////////////////////////////
-
-/* std::string BitcoinExchange::getSomething(void) const {
-	//return this->something;
-}
-
-void BitcoinExchange::setSomething(std::string new_value) {
-	//if (new_value >= x)
-	//this->something = new_value;
-	return ;
-} */
-
 
 //////////////////////////////////////////////////////////
 //						 ACTION							//
@@ -181,41 +160,11 @@ bool BitcoinExchange::checkAmount(const std::string &amount, float &value, const
 	return SUCCESS;
 }
 
-
-void BitcoinExchange::printSmart(float value) const {
-    // Treat very small values as 0
-    if (std::fabs(value) < 1e-10) {
-        std::cout << 0;
-        return;
-    }
-
-    // If value is "effectively" an integer (e.g., 42.0)
-    if (std::fabs(value - std::floor(value)) < 1e-10) {
-        std::cout << static_cast<long>(value);  // cast to int for clean display
-    } else {
-        std::cout << std::fixed << std::setprecision(6) << value;
-        
-        // Optionally strip trailing zeros:
-        std::string out;
-        std::ostringstream oss;
-        oss << std::fixed << std::setprecision(6) << value;
-        out = oss.str();
-
-        // Remove trailing zeros and decimal point if necessary
-        while (!out.empty() && out[out.size() - 1] == '0') out.erase(out.size() - 1);
-        if (!out.empty() && out[out.size() - 1] == '.') out.erase(out.size() - 1);
-
-        std::cout << out;
-    }
-}
-
-void BitcoinExchange::printDataLine(const std::string &date, float amount) { //HEEEEEERE
-	float rate = findRate(date);	
+void BitcoinExchange::printDataLine(const std::string &date, double amount) {
+	double rate = findRate(date);	
 	
-	float price = rate * amount;
-	std::cout << date << " => " << amount << " = ";
-	printSmart(price);
-	std::cout << std::endl;
+	double price = rate * amount;
+	std::cout << date << " => " << amount << " = " << price << std::endl;
 }
 
 float BitcoinExchange::findRate(const std::string &date) {

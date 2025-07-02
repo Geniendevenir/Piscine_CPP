@@ -1,6 +1,6 @@
 # Compiler and Flag
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Wno-conversion -std=c++98 -I$(INC)
+CXXFLAGS = -Wall -Wextra -Werror -Wno-conversion -std=c++98 -I$(INC)
 NAME = btc
 
 #Directories

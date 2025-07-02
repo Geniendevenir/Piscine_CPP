@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:20:50 by adebert           #+#    #+#             */
-/*   Updated: 2025/07/01 20:13:07 by allan            ###   ########.fr       */
+/*   Updated: 2025/07/02 15:27:38 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 #include <cerrno>
 #include <climits>
 #include <cctype>
-#include <set>
+#include <ctime>
 
-#define SUCCESS false
-#define ERROR true
+#define SUCCESS 0
+#define ERROR 1
 
 
 template <typename T>
@@ -91,7 +91,8 @@ class PmergeMe {
 			}
 
 			//Recursif Call
-			larger = fordJohsonSort(larger);	
+			if (larger.size() > 1)
+				larger = fordJohsonSort(larger);	
 
 			//Insert smaller into larger using Jacobstal + Binary Search
 			T insertionOrder = getJacobsthalIndex(smaller.size());
@@ -105,11 +106,6 @@ class PmergeMe {
 			return larger; 
 		}
 
-		void printContainer(const T& toPrint) const {
-			for (typename T::const_iterator it = toPrint.begin(); it != toPrint.end(); ++it)
-				std::cout << *it << " ";
-			std::cout << std::endl;	
-		}
 
 	private:
 		T toSort;
@@ -127,18 +123,19 @@ class PmergeMe {
 		}
 
 		bool hasDuplicate() const {
-			std::set<int> seen;
-			for (typename T::const_iterator it = toSort.begin(); it != toSort.end(); ++it) {
-				if (!seen.insert(*it).second)
-					return true;	
-			}
-			return false;
+		    for (typename T::const_iterator it1 = toSort.begin(); it1 != toSort.end(); ++it1) {
+		        for (typename T::const_iterator it2 = it1 + 1; it2 != toSort.end(); ++it2) {
+		            if (*it1 == *it2)
+		                return true;
+		        }
+		    }
+		    return false;
 		}
 
 		T getJacobsthalIndex(int size) {
 			T result;
 
-			int j0 = 0, j1 = 1;
+			int j0 = 1, j1 = 2;
 			while (j1 < size) {
 				result.push_back(j1);
 				int j2 = j1 + 2 * j0;
@@ -148,7 +145,7 @@ class PmergeMe {
 
 			T used;
 			for (int i = 0; i < size; ++i)
-				used.push_back(0); // 0 = false
+				used.push_back(0);
 
 			for (typename T::const_iterator it = result.begin(); it != result.end(); ++it) {
 				if (*it < size)
@@ -176,4 +173,10 @@ std::ostream &operator<<(std::ostream &o, const PmergeMe < T > &i) {
 	return o;
 }
 
+template <typename T>
+void printContainer(const T& toPrint) {
+	for (typename T::const_iterator it = toPrint.begin(); it != toPrint.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;	
+}
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RNP.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allan <allan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: adebert <adebert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:56:15 by allan             #+#    #+#             */
-/*   Updated: 2025/06/22 17:44:35 by allan            ###   ########.fr       */
+/*   Updated: 2025/07/02 15:20:11 by adebert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,9 +125,10 @@ bool RNP::doOperation(char sign) {
 }
 
 bool RNP::doSubstraction() {
-	double nbr = _rnp.top();
+	double right = _rnp.top();
 	_rnp.pop();
-	_rnp.top() -= nbr;
+	double left = _rnp.top();
+	_rnp.top() = left - right;
 	if (checkIntOverflow())
 		return ERROR;
 	return SUCCESS;
@@ -152,13 +153,14 @@ bool RNP::doMultiplication() {
 }
 
 bool RNP::doDivision() {
-	double nbr = _rnp.top();
-	if (nbr == 0) {
+	double right = _rnp.top();
+	if (right == 0) {
 		std::cerr << "An Operation is trying to divide by 0" << std::endl;
 		return ERROR;
 	}
 	_rnp.pop();
-	_rnp.top() /= nbr;
+	double left = _rnp.top();
+	_rnp.top() = left / right;
 	if (checkIntOverflow())
 		return ERROR;
 	return SUCCESS;
